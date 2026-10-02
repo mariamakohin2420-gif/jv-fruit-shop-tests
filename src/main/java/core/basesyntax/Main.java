@@ -1,7 +1,6 @@
 package core.basesyntax;
 
 import core.basesyntax.model.FruitTransaction;
-
 import core.basesyntax.service.DataConverter;
 import core.basesyntax.service.DataConverterImpl;
 import core.basesyntax.service.FileReader;
@@ -19,7 +18,6 @@ import core.basesyntax.service.operation.ReturnOperation;
 import core.basesyntax.service.operation.SupplyOperation;
 import core.basesyntax.service.strategy.OperationStrategy;
 import core.basesyntax.service.strategy.OperationStrategyImpl;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
