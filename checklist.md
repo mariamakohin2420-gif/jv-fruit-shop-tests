@@ -17,7 +17,7 @@ after the software release and during the maintenance stage.
 You can check this requirement by `running your tests with coverage` or running `mvn clean verify` in the terminal.
 
 #### Don't keep all tests in a single class
-Create a corresponding test class for each service you test. Do not test the logic of the whole program in one test class.
+Create a corresponding test class for each core.basesyntax.service you test. Do not test the logic of the whole program in one test class.
 That's important for code readability.
 
 Example:  
@@ -31,17 +31,17 @@ Same goes for files that you use in tests, **let's put them into this folder:** 
 #### Try to cover different scenarios in tests
 Your task is to include edge cases apart from the regular method use case.
 
-#### Don't test the Main class
-We want to test only business logic, so there is no need to cover the `Main` class with tests. 
-You can exclude the Main class with the `main()` method from being checked for code coverage in `pom.xml`.   
+#### Don't test the core.basesyntax.Main class
+We want to test only business logic, so there is no need to cover the `core.basesyntax.Main` class with tests. 
+You can exclude the core.basesyntax.Main class with the `main()` method from being checked for code coverage in `pom.xml`.   
 
-__Example__: find the following code in the `pom.xml` and change `Main` according to your 
+__Example__: find the following code in the `pom.xml` and change `core.basesyntax.Main` according to your 
     class naming where you have your `main()` method.  
     
 ```java
     <configuration>  
         <excludes>  
-            <exclude>**/Main*</exclude>  
+            <exclude>**/core.basesyntax.Main*</exclude>  
         </excludes>  
     </configuration>  
 ```  
@@ -49,7 +49,7 @@ __Example__: find the following code in the `pom.xml` and change `Main` accordin
 #### Don't use any other version of JUnit
 Use JUnit5 which is already present in your `pom.xml`.
 #### Ensure that you test your services and they are independently
-If you are testing FruitService behavior - don't use FileReader or any other service in your tests.
+If you are testing FruitService behavior - don't use FileReader or any other core.basesyntax.service in your tests.
 
 Same, when you are testing the method of FruitService that returns all information about the fruits in the storage -
 there is no need to use the other FruitService method that puts the fruit into storage.
@@ -72,6 +72,6 @@ public void afterEachTest() {
 }
 ```  
 #### Unit testing is <ins>isolated</ins> testing
-Keep your strategy, handler, and service tests separate from each other. Each of them needs a separate test class with their corresponding test cases.
+Keep your strategy, handler, and core.basesyntax.service tests separate from each other. Each of them needs a separate test class with their corresponding test cases.
 
-Don't test your strategy in service (e.g. `FruitService`). It's enough to create a map with only one handler (e.g. `Balance`).
+Don't test your strategy in core.basesyntax.service (e.g. `FruitService`). It's enough to create a map with only one handler (e.g. `Balance`).
