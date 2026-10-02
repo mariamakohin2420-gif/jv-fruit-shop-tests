@@ -25,10 +25,12 @@ public class DataConverterTest {
         );
         List<FruitTransaction> transactions = dataConverter.convertToTransaction(inputLines);
         Assertions.assertEquals(2, transactions.size());
-        Assertions.assertEquals(FruitTransaction.Operation.BALANCE, transactions.get(0).getOperation());
+        Assertions.assertEquals(FruitTransaction.Operation.BALANCE,
+                transactions.get(0).getOperation());
         Assertions.assertEquals("banana", transactions.get(0).getFruit());
         Assertions.assertEquals(20, transactions.get(0).getQuantity());
-        Assertions.assertEquals(FruitTransaction.Operation.SUPPLY, transactions.get(1).getOperation());
+        Assertions.assertEquals(FruitTransaction.Operation.SUPPLY,
+                transactions.get(1).getOperation());
         Assertions.assertEquals("apple", transactions.get(1).getFruit());
         Assertions.assertEquals(100, transactions.get(1).getQuantity());
     }
