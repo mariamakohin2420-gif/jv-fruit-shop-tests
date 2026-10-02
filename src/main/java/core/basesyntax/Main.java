@@ -1,8 +1,22 @@
 package core.basesyntax;
 
 import core.basesyntax.model.FruitTransaction;
-import core.basesyntax.service.*;
-import core.basesyntax.service.operation.*;
+
+import core.basesyntax.service.DataConverter;
+import core.basesyntax.service.DataConverterImpl;
+import core.basesyntax.service.FileReader;
+import core.basesyntax.service.FileReaderImpl;
+import core.basesyntax.service.FileWriter;
+import core.basesyntax.service.FileWriterImpl;
+import core.basesyntax.service.ReportGenerator;
+import core.basesyntax.service.ReportGeneratorImpl;
+import core.basesyntax.service.ShopService;
+import core.basesyntax.service.ShopServiceImpl;
+import core.basesyntax.service.operation.BalanceOperation;
+import core.basesyntax.service.operation.OperationHandler;
+import core.basesyntax.service.operation.PurchaseOperation;
+import core.basesyntax.service.operation.ReturnOperation;
+import core.basesyntax.service.operation.SupplyOperation;
 import core.basesyntax.service.strategy.OperationStrategy;
 import core.basesyntax.service.strategy.OperationStrategyImpl;
 
