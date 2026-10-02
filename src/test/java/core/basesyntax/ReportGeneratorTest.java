@@ -13,7 +13,7 @@ public class ReportGeneratorTest {
     @BeforeEach
     void setUp() {
         Storage.fruits.clear();
-        reportGenerator =  new ReportGeneratorImpl();
+        reportGenerator = new ReportGeneratorImpl();
     }
 
     @Test
