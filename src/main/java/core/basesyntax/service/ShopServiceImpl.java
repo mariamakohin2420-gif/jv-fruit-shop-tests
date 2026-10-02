@@ -1,8 +1,9 @@
 package core.basesyntax.service;
 
-import java.util.List;
 import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.service.strategy.OperationStrategy;
+
+import java.util.List;
 
 public class ShopServiceImpl implements ShopService {
     private final OperationStrategy operationStrategy;
