@@ -1,12 +1,10 @@
 package core.basesyntax;
 
+import core.basesyntax.db.Storage;
 import core.basesyntax.model.FruitTransaction;
-import core.basesyntax.service.operation.BalanceOperation;
 import core.basesyntax.service.operation.OperationHandler;
 import core.basesyntax.service.strategy.OperationStrategy;
-import core.basesyntax.service.strategy.OperationStrategyImpl;
-import java.util.HashMap;
-import java.util.Map;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,11 +14,9 @@ public class OperationStrategytest {
     private OperationHandler balanceHandler;
 
     @BeforeEach
+    @AfterEach
     void setUp() {
-        balanceHandler = new BalanceOperation();
-        Map<FruitTransaction.Operation, OperationHandler> handlers = new HashMap<>();
-        handlers.put(FruitTransaction.Operation.BALANCE, balanceHandler);
-        operationStrategy = new OperationStrategyImpl(handlers);
+        Storage.fruits.clear();
     }
 
     @Test
