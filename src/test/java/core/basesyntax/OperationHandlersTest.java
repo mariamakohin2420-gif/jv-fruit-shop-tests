@@ -30,40 +30,40 @@ public class OperationHandlersTest {
 
     @Test
     void supplyOperation_ok() {
-        Storage.fruits.put("apple", 20);
+        Storage.fruits.put("banana", 20);
         OperationHandler handler = new SupplyOperation();
         FruitTransaction transaction = new FruitTransaction(FruitTransaction
-                .Operation.SUPPLY, "apple", 30);
+                .Operation.SUPPLY, "banana", 30);
         handler.handle(transaction);
-        Assertions.assertEquals(50, Storage.fruits.get("apple"));
+        Assertions.assertEquals(50, Storage.fruits.get("banana"));
     }
 
     @Test
     void returnOperation_ok() {
-        Storage.fruits.put("banana", 10);
+        Storage.fruits.put("kiwi", 10);
         OperationHandler handler = new ReturnOperation();
         FruitTransaction transaction = new FruitTransaction(FruitTransaction
-                .Operation.RETURN, "banana", 15);
+                .Operation.RETURN, "kiwi", 5);
         handler.handle(transaction);
-        Assertions.assertEquals(15, Storage.fruits.get("banana"));
+        Assertions.assertEquals(15, Storage.fruits.get("kiwi"));
     }
 
     @Test
     void purchaseOperation_validQuantity_ok() {
-        Storage.fruits.put("banana", 20);
+        Storage.fruits.put("orange", 20);
         OperationHandler handler = new PurchaseOperation();
         FruitTransaction transaction = new FruitTransaction(FruitTransaction
-                .Operation.PURCHASE, "banana", 15);
+                .Operation.PURCHASE, "orange", 15);
         handler.handle(transaction);
-        Assertions.assertEquals(5, Storage.fruits.get("banana"));
+        Assertions.assertEquals(5, Storage.fruits.get("orange"));
     }
 
     @Test
     void purchaseOperation_notEnoughStock_notOk() {
-        Storage.fruits.put("banana", 10);
+        Storage.fruits.put("lemon", 10);
         OperationHandler handler = new PurchaseOperation();
         FruitTransaction transaction = new FruitTransaction(FruitTransaction
-                .Operation.PURCHASE, "banana", 15);
+                .Operation.PURCHASE, "lemon", 15);
         Assertions.assertThrows(RuntimeException.class, () -> handler.handle(transaction));
     }
 }
