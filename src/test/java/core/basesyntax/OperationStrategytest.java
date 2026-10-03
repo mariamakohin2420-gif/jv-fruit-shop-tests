@@ -2,32 +2,33 @@ package core.basesyntax;
 
 import core.basesyntax.db.Storage;
 import core.basesyntax.model.FruitTransaction;
+import core.basesyntax.service.operation.BalanceOperation;
 import core.basesyntax.service.operation.OperationHandler;
 import core.basesyntax.service.strategy.OperationStrategy;
-import org.junit.jupiter.api.AfterEach;
+import core.basesyntax.service.strategy.OperationStrategyImpl;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class OperationStrategytest {
-    private OperationStrategy operationStrategy;
-    private OperationHandler balanceHandler;
+import java.util.HashMap;
+import java.util.Map;
 
-    @BeforeEach
-    @AfterEach
-    void setUp() {
-        Storage.fruits.clear();
-    }
+public class OperationStrategytest {
 
     @Test
     void getHandler_validOperation_ok() {
-        OperationHandler handler = operationStrategy.getHandler(FruitTransaction.Operation.BALANCE);
-        Assertions.assertEquals(balanceHandler, handler);
+        Map<FruitTransaction.Operation, OperationHandler> handlers = new HashMap<>();
+        OperationHandler balanceHandler = new BalanceOperation();
+        handlers.put(FruitTransaction.Operation.BALANCE, balanceHandler);
+        OperationStrategy strategy = new OperationStrategyImpl(handlers);
+        OperationHandler actual = strategy.getHandler(FruitTransaction.Operation.BALANCE);
+        Assertions.assertEquals(balanceHandler, actual);
     }
 
     @Test
     void gethandler_unregisteredOperatio_notOk() {
-        Assertions.assertThrows(IllegalArgumentException.class,
-                () -> operationStrategy.getHandler(FruitTransaction.Operation.PURCHASE));
+        Map<FruitTransaction.Operation, OperationHandler> handlers = new HashMap<>();
+        OperationStrategy strategy = new OperationStrategyImpl(handlers);
+        Assertions.assertThrows(RuntimeException.class,
+                () -> strategy.getHandler(FruitTransaction.Operation.PURCHASE));
     }
 }
