@@ -33,7 +33,7 @@ public class ShopServiceImplTest {
 
         shopService = new ShopServiceImpl(strategy);
 
-        List<FruitTransaction> transaction = List.of(
+        List<FruitTransaction> transactions = List.of(
                 new FruitTransaction(FruitTransaction.Operation.BALANCE, "apple", 100));
         shopService.process(transactions);
         Assertions.assertEquals(100, Storage.fruits.get("apple"));

@@ -4,7 +4,7 @@ import core.basesyntax.model.FruitTransaction;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class FryitTransactionTest {
+public class FruitTransactionTest {
     @Test
     void fruitTransaction_gettersAndSetters_ok() {
         FruitTransaction transaction = new FruitTransaction();

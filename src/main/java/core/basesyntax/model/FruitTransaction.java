@@ -5,6 +5,8 @@ public class FruitTransaction {
     private String fruit;
     private int quantity;
 
+    public FruitTransaction() {}
+
     public FruitTransaction(Operation operation, String fruit, int quantity) {
         this.operation = operation;
         this.fruit = fruit;
@@ -14,21 +16,19 @@ public class FruitTransaction {
     public Operation getOperation() {
         return operation;
     }
-
-    public String getFruit() {
-        return fruit;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
     public void setOperation(Operation operation) {
         this.operation = operation;
     }
 
+    public String getFruit() {
+        return fruit;
+    }
     public void setFruit(String fruit) {
         this.fruit = fruit;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 
     public void setQuantity(int quantity) {
@@ -53,7 +53,7 @@ public class FruitTransaction {
 
         public static Operation getByCode(String code) {
             for (Operation op: values()) {
-                if (op.getCode().equalsIgnoreCase(code)) {
+                if (op.getCode().equals(code)) {
                     return op;
                 }
             }
