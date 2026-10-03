@@ -43,7 +43,7 @@ public class OperationHandlersTest {
         Storage.fruits.put("banana", 10);
         OperationHandler handler = new ReturnOperation();
         FruitTransaction transaction = new FruitTransaction(FruitTransaction
-                .Operation.RETURN, "banana", 15);
+                .Operation.RETURN, "banana", 5);
         handler.handle(transaction);
         Assertions.assertEquals(15, Storage.fruits.get("banana"));
     }
