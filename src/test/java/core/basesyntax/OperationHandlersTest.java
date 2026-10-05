@@ -8,12 +8,12 @@ import core.basesyntax.service.operation.PurchaseOperation;
 import core.basesyntax.service.operation.ReturnOperation;
 import core.basesyntax.service.operation.SupplyOperation;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class OperationHandlersTest {
-    @BeforeEach
     @AfterEach
     void clearStorage() {
         Storage.fruits.clear();
@@ -25,7 +25,7 @@ public class OperationHandlersTest {
         FruitTransaction transaction = new FruitTransaction(FruitTransaction
                 .Operation.BALANCE, "apple", 50);
         handler.handle(transaction);
-        Assertions.assertEquals(50, Storage.fruits.get("apple"));
+        assertEquals(50, Storage.fruits.get("apple"));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class OperationHandlersTest {
         FruitTransaction transaction = new FruitTransaction(FruitTransaction
                 .Operation.SUPPLY, "banana", 30);
         handler.handle(transaction);
-        Assertions.assertEquals(50, Storage.fruits.get("banana"));
+        assertEquals(50, Storage.fruits.get("banana"));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class OperationHandlersTest {
         FruitTransaction transaction = new FruitTransaction(FruitTransaction
                 .Operation.RETURN, "kiwi", 5);
         handler.handle(transaction);
-        Assertions.assertEquals(15, Storage.fruits.get("kiwi"));
+        assertEquals(15, Storage.fruits.get("kiwi"));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class OperationHandlersTest {
         FruitTransaction transaction = new FruitTransaction(FruitTransaction
                 .Operation.PURCHASE, "orange", 15);
         handler.handle(transaction);
-        Assertions.assertEquals(5, Storage.fruits.get("orange"));
+        assertEquals(5, Storage.fruits.get("orange"));
     }
 
     @Test
@@ -64,6 +64,6 @@ public class OperationHandlersTest {
         OperationHandler handler = new PurchaseOperation();
         FruitTransaction transaction = new FruitTransaction(FruitTransaction
                 .Operation.PURCHASE, "lemon", 15);
-        Assertions.assertThrows(RuntimeException.class, () -> handler.handle(transaction));
+        assertThrows(RuntimeException.class, () -> handler.handle(transaction));
     }
 }

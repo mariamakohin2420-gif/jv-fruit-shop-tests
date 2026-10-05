@@ -16,10 +16,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class ShopServiceImplTest {
     private ShopService shopService;
 
-    @BeforeEach
     @AfterEach
     void clearStorage() {
         Storage.fruits.clear();
@@ -36,7 +37,7 @@ public class ShopServiceImplTest {
         List<FruitTransaction> transactions = List.of(
                 new FruitTransaction(FruitTransaction.Operation.BALANCE, "apple", 100));
         shopService.process(transactions);
-        Assertions.assertEquals(100, Storage.fruits.get("apple"));
+        assertEquals(100, Storage.fruits.get("apple"));
 
     }
 }

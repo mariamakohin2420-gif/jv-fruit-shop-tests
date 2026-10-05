@@ -7,8 +7,10 @@ import core.basesyntax.service.strategy.OperationStrategy;
 import core.basesyntax.service.strategy.OperationStrategyImpl;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class OperationStrategyTest {
 
@@ -19,14 +21,14 @@ public class OperationStrategyTest {
         handlers.put(FruitTransaction.Operation.BALANCE, balanceHandler);
         OperationStrategy strategy = new OperationStrategyImpl(handlers);
         OperationHandler actual = strategy.getHandler(FruitTransaction.Operation.BALANCE);
-        Assertions.assertEquals(balanceHandler, actual);
+        assertEquals(balanceHandler, actual);
     }
 
     @Test
     void gethandler_unregisteredOperatio_notOk() {
         Map<FruitTransaction.Operation, OperationHandler> handlers = new HashMap<>();
         OperationStrategy strategy = new OperationStrategyImpl(handlers);
-        Assertions.assertThrows(RuntimeException.class,
+        assertThrows(RuntimeException.class,
                 () -> strategy.getHandler(FruitTransaction.Operation.PURCHASE));
     }
 }
