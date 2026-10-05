@@ -2,12 +2,11 @@ package core.basesyntax;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
-
 import core.basesyntax.db.Storage;
 import core.basesyntax.service.ReportGenerator;
 import core.basesyntax.service.ReportGeneratorImpl;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 public class ReportGeneratorTest {
 

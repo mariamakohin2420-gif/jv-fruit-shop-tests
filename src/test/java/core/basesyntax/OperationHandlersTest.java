@@ -10,7 +10,6 @@ import core.basesyntax.service.operation.OperationHandler;
 import core.basesyntax.service.operation.PurchaseOperation;
 import core.basesyntax.service.operation.ReturnOperation;
 import core.basesyntax.service.operation.SupplyOperation;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 

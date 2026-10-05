@@ -3,16 +3,14 @@ package core.basesyntax;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.junit.jupiter.api.Test;
-
 import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.service.operation.BalanceOperation;
 import core.basesyntax.service.operation.OperationHandler;
 import core.basesyntax.service.strategy.OperationStrategy;
 import core.basesyntax.service.strategy.OperationStrategyImpl;
+import java.util.HashMap;
+import java.util.Map;
+import org.junit.jupiter.api.Test;
 
 public class OperationStrategyTest {
 

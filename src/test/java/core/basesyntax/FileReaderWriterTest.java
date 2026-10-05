@@ -7,13 +7,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.File;
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
-
 import core.basesyntax.service.FileReader;
 import core.basesyntax.service.FileReaderImpl;
 import core.basesyntax.service.FileWriter;
 import core.basesyntax.service.FileWriterImpl;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 public class FileReaderWriterTest {
 
