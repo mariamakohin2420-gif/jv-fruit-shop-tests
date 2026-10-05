@@ -12,14 +12,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShopServiceImplTest {
-    private ShopService shopService;
 
     @AfterEach
     void clearStorage() {
@@ -32,7 +29,7 @@ public class ShopServiceImplTest {
         handlers.put(FruitTransaction.Operation.BALANCE, new BalanceOperation());
         OperationStrategy strategy = new OperationStrategyImpl(handlers);
 
-        shopService = new ShopServiceImpl(strategy);
+        ShopService shopService = new ShopServiceImpl(strategy);
 
         List<FruitTransaction> transactions = List.of(
                 new FruitTransaction(FruitTransaction.Operation.BALANCE, "apple", 100));
